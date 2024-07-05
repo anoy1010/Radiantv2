@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: 'Saira';
+  font-style: normal;
+  font-weight: 100;
+  src: url('https://fonts.gstatic.com/s/saira/v16/MIHMkUoH6-h06Sc8QA.woff2') format('woff2');
+}
+
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,13 +27,8 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Saira", sans-serif;
+    
 }
 
 @layer utilities {
@@ -31,3 +36,48 @@ body {
     text-wrap: balance;
   }
 }
+
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto; /* Centrer le loader */
+}
+
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Styles globaux, y compris les transitions pour petits écrans */
+.flex-1 {
+  transition: transform 0.5s ease-in-out;
+}
+
+@media (max-width: 650px) {
+  .pcecran {
+    display: none; /* Masque le bloc pcecran sur les petits écrans */
+  }
+  .petitecran {
+    display: block; /* Affiche le bloc petitecran sur les petits écrans */
+  }
+}
+
+@media (min-width: 651px) {
+  .pcecran {
+    display: block; /* Affiche le bloc pcecran sur les grands écrans */
+  }
+  .petitecran {
+    display: none; /* Masque le bloc petitecran sur les grands écrans */
+  }
+}
+

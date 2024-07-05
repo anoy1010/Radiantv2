@@ -1,0 +1,43 @@
+/* styles/TestimonialSlider.module.css */
+.slider-container {
+    width: 100%;
+    margin: auto;
+    padding: 40px 0;
+    overflow: hidden; /* Pour éviter le défilement horizontal */
+  }
+  
+  .testimonial {
+    background: #fff;
+    padding: 20px;
+    margin: 0 10px; /* Ajustez la marge pour qu'elle ne dépasse pas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-sizing: border-box; /* Inclure le padding et la bordure dans la largeur totale */
+  }
+  
+  .testimonial:hover {
+    transform: translateY(-10px);
+  }
+  
+  .testimonial-content {
+    margin: auto;
+    max-width: 300px;
+  }
+  
+  .testimonial-content p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .testimonial-content h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .testimonial-content span {
+    font-size: 14px;
+    color: #777;
+  }
+  

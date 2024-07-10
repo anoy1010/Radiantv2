@@ -284,7 +284,7 @@ export const Section5 = () => {
             reprehenderit eiusmod qui enim aliqua voluptate ipsum. Nostrud
             labore duis Lorem dolor in ullamco amet. Eu deserunt exercitation
             minim laboris duis velit consequat ea est anim occaecat minim.
-            Proident nulla anim qui ea. Et est voluptate amet id magna.
+            Proident nulla anim qui ea. voluptate amet id magna.
           </p>
           <div className="flex flex-col lg:flex-row gap-4">
             <ButtonOr text="Commencez" />

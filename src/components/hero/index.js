@@ -185,7 +185,7 @@ export const HeroAbout = () => {
             <div
               className="flex-1 p-8 flex justify-center items-center flex-col"
               ref={(el) => (textRefs.current[index] = el)}
-              style={{ opacity: 0, transform: "translateY(20px)" }}
+              style={{ opacity: 1, transform: "translateY(20px)" }}
             >
               <h1 className="text-3xl font-bold text-[#111047]">{slide.titre}</h1>
               <p className="text-lg text-[#111047] max-w-lg text-center">{slide.text}</p>

@@ -5,8 +5,15 @@ const nextConfig = {
     NEXT_PUBLIC_BASE_URL: "http://192.168.1.12:3000",
   },
   images: {
-    domains: ['images.unsplash.com'],
-  },
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com', // Replace with your domain
+      },
+      // Add more patterns as needed
+    ],
+  }, 
+
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg)$/,

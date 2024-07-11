@@ -2,8 +2,8 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { ButtonBlack, ButtonOr } from "../button/Button";
-import { gsap } from "gsap";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+
 
 export const HeroHome = () => {
   return (
@@ -52,23 +52,23 @@ export const HeroServices = () => {
             <ButtonOr text="Commencez" />
             <ButtonBlack text="En savoir plus" />
           </div>
-          <div class="flex flex-col md:flex-row gap-x-0 md:gap-x-12 mt-24 lg:max-w-xl p-4 md:p-6 bg-black/40 lg:bg-white/20 backdrop-blur-md rounded-md">
-            <p class="max-w-full md:max-w-md text-sm text-white mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row gap-x-0 md:gap-x-12 mt-24 lg:max-w-xl p-4 md:p-6 bg-black/40 lg:bg-white/20 backdrop-blur-md rounded-md">
+            <p className="max-w-full md:max-w-md text-sm text-white mb-4 md:mb-0">
               resolving neglected sir tolerably but existence conveying for
               tolerably but for tolerably but.
             </p>
             <ButtonOr text="Commencez" />
           </div>
         </div>
-        <div class="relative">
-          <div class="absolute inset-0 flex items-center justify-center z-0">
-            <div class="bg-[#F7941D] blur-2xl rounded-full w-60 h-60 shadow-2xl shadow-[#F7941D] md:w-96 md:h-96 lg:w-[400px] lg:h-[400px]"></div>
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center justify-center z-0">
+            <div className="bg-[#F7941D] blur-2xl rounded-full w-60 h-60 shadow-2xl shadow-[#F7941D] md:w-96 md:h-96 lg:w-[400px] lg:h-[400px]"></div>
           </div>
 
-          <div class="z-10 flex px-6 md:px-24 gap-x-8 md:gap-x-14 relative">
-            <div class="w-24 md:w-40 h-[300px] md:h-[450px] bg-white"></div>
-            <div class="w-24 md:w-40 h-[300px] md:h-[450px] bg-white translate-y-8 md:translate-y-16"></div>
-            <div class="w-24 md:w-40 h-[300px] md:h-[450px] bg-white translate-y-16 md:translate-y-32"></div>
+          <div className="z-10 flex px-6 md:px-24 gap-x-8 md:gap-x-14 relative">
+            <div className="w-24 md:w-40 h-[300px] md:h-[450px] bg-white"></div>
+            <div className="w-24 md:w-40 h-[300px] md:h-[450px] bg-white translate-y-8 md:translate-y-16"></div>
+            <div className="w-24 md:w-40 h-[300px] md:h-[450px] bg-white translate-y-16 md:translate-y-32"></div>
           </div>
         </div>
       </div>
@@ -95,9 +95,6 @@ const slides = [
   },
 ];
 
-gsap.registerPlugin(ScrollTrigger);
-
-
 export const HeroAbout = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const slidesRef = useRef([]);
@@ -105,45 +102,14 @@ export const HeroAbout = () => {
 
   useEffect(() => {
     if (textRefs.current[activeIndex]) {
-      gsap.fromTo(
-        textRefs.current[activeIndex],
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
-      );
+      textRefs.current[activeIndex].classList.add("fade-in");
     }
   }, [activeIndex]);
 
   useEffect(() => {
     slidesRef.current.forEach((slide, index) => {
-      gsap.fromTo(
-        slide,
-        {
-          x: Math.random() * 200 - 100,
-          y: Math.random() * 200 - 100,
-          scale: 0.5,
-          opacity: 0,
-        },
-        {
-          x: 0,
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          duration: 1.5,
-          ease: "power2.out",
-          delay: index * 0.2,
-        }
-      );
-
-      // Parallax effect
-      gsap.to(slide, {
-        y: 50,
-        scrollTrigger: {
-          trigger: slide,
-          start: "top center",
-          end: "bottom center",
-          scrub: true,
-        }
-      });
+      slide.classList.add("slide-in");
+      slide.style.animationDelay = `${index * 0.2}s`;
     });
   }, []);
 
@@ -185,14 +151,14 @@ export const HeroAbout = () => {
         {slides.map((slide, index) => (
           <div key={slide.id} className="flex flex-col lg:flex-row gap-8 justify-center items-center">
             <div className="relative flex-1 flex flex-row justify-center" ref={(el) => (slidesRef.current[index] = el)}>
-              <div className="w-80  ">
+              <div className="w-80">
                 <Image
                   src={slide.img1}
                   alt={`Image ${slide.id} - 1`}
                   layout="responsive"
                   width={500}
                   height={200}
-                  className=" object-cover"
+                  className="object-cover"
                 />
               </div>
               <div className="w-80">
@@ -202,7 +168,7 @@ export const HeroAbout = () => {
                   layout="responsive"
                   width={500}
                   height={200}
-                  className=" object-cover"
+                  className="object-cover"
                 />
               </div>
               <div className="w-80">
@@ -212,14 +178,14 @@ export const HeroAbout = () => {
                   layout="responsive"
                   width={500}
                   height={200}
-                  className=" object-cover"
+                  className="object-cover"
                 />
               </div>
             </div>
             <div
               className="flex-1 p-8 flex justify-center items-center flex-col"
               ref={(el) => (textRefs.current[index] = el)}
-              style={{ opacity: 1, transform: "translateY(20px)" }}
+              style={{ opacity: 0, transform: "translateY(20px)" }}
             >
               <h1 className="text-3xl font-bold text-[#111047]">{slide.titre}</h1>
               <p className="text-lg text-[#111047] max-w-lg text-center">{slide.text}</p>
@@ -228,13 +194,30 @@ export const HeroAbout = () => {
         ))}
       </Slider>
       <style jsx>{`
-        .bubble {
-          border-radius: 50%;
-          overflow: hidden;
-          width: 150px;
-          height: 150px;
-          margin: 10px;
-          position: relative;
+        .slide-in {
+          opacity: 0;
+          transform: translateY(50px);
+          animation: slideIn 1.5s forwards;
+        }
+
+        .fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          animation: fadeIn 1s forwards;
+        }
+
+        @keyframes slideIn {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeIn {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
     </div>

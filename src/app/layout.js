@@ -1,6 +1,7 @@
 import { Inter, Saira } from "next/font/google";
 import "./globals.css";
 import LayoutComps from "@/components/layoutComps";
+
 import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });

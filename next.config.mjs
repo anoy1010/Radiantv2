@@ -13,7 +13,8 @@ const nextConfig = {
       // Add more patterns as needed
     ],
   }, 
-
+  
+  
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg)$/,

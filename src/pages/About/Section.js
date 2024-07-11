@@ -18,13 +18,13 @@ export default function Section() {
 
 export const Section1 = () => {
   return (
-    <div className="relative">
-      <div className="w-[400px]  h-[400px] rounded-full bg-[#F7941D] absolute -left-24 top-32 z-0 opacity-80 blur"></div>
-      <h1 className="text-3xl lg:text-5xl font-bold text-center py-24 ">
+    <div className="relative dark:bg-gray-800">
+      <div className="w-[400px] h-[400px] rounded-full bg-[#F7941D] absolute -left-24 top-32 z-0 opacity-80 blur"></div>
+      <h1 className="text-3xl lg:text-5xl font-bold text-center py-24 text-gray-900 dark:text-gray-200">
         Tell me a brand story
       </h1>
-      <div className="grid grid-cols-1 lg:grid-cols-2 px-32 gap-x-6 justify-center items-center">
-        <div className="w-[80%] h-[600px    ] z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 px-6 lg:px-32 gap-x-6 gap-y-8 justify-center items-center">
+        <div className="w-[80%] h-[600px] z-10 mx-auto lg:mx-0">
           <Image
             src="/imgs/pexels-didsss-1405724.jpg"
             width={500}
@@ -34,10 +34,10 @@ export const Section1 = () => {
           />
         </div>
         <div className="flex flex-col gap-y-8 items-start max-w-md">
-          <h1 className="text-3xl lg:text-4xl font-bold">
+          <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200">
             Tell a better brand story
           </h1>
-          <p className="">
+          <p className="text-gray-700 dark:text-gray-300">
             Voluptate fugiat dolor ad magna et do. Voluptate aute do Lorem magna
             non reprehenderit ex incididunt non nostrud proident consequat
             nostrud. Pariatur laboris deserunt quis eu tempor eiusmod
@@ -68,120 +68,105 @@ export const Section1 = () => {
 
 export const Section2 = () => {
   return (
-    <div className="p-24">
-      <div className="py-12 ">
-        <h1 className="text-3xl lg:text-5xl font-bold text-center py-4">
-          our plans scale with your product
+    <div className="p-6 lg:p-24 dark:bg-gray-900">
+      <div className="py-12">
+        <h1 className="text-3xl lg:text-5xl font-bold text-center py-4 text-gray-900 dark:text-gray-200">
+          Our plans scale with your product
         </h1>
-        <p className="text-center">
+        <p className="text-center text-gray-700 dark:text-gray-300">
           Id eiusmod nulla magna est duis exercitation ex id.
         </p>
       </div>
-      <div className="flex  justify-center gap-x-8 py-8 ">
-        <div>
-          <div className="ring-1 ring-[#111047] px-10 rounded-tl-2xl rounded-br-2xl py-8 flex flex-col justify-center items-center gap-y-8">
+      <div className="flex flex-wrap justify-center gap-x-8 gap-y-8 py-8">
+        <div className="max-w-xs">
+          <div className="ring-1 ring-[#111047] px-10 rounded-tl-2xl rounded-br-2xl py-8 flex flex-col justify-center items-center gap-y-8 bg-white dark:bg-gray-800">
             <h3 className="text-[#F7941D] text-3xl lg:text-4xl">
-              {" "}
-              for starter
+              For Starter
             </h3>
             <h3 className="text-[#F7941D] text-3xl font-semibold lg:text-5xl">
-              {" "}
               59 $
             </h3>
-            <ul className="flex flex-col gap-y-4">
-              <li className="flex gap-x-4">
+            <ul className="flex flex-col gap-y-4 text-gray-900 dark:text-gray-200">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
                 Feedback Categorization
               </li>
-              <li className="flex gap-x-4">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
-                Feedback Categorization
+                Real-Time Collaboration
               </li>
-              <li className="flex gap-x-4">
-                <FaCheckCircle className="w-4 h-4" /> Real-Time Collaboration
-              </li>
-              <li className="flex gap-x-4">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
                 Feedback Loop Notifications
               </li>
-              <li className="flex gap-x-4">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
                 Essential Dev Tools Integrations
               </li>
             </ul>
-            <div className="px-14 py-4 rounded-tl-2xl rounded-br-2xl ring-1 ring-black hover:bg-[#111047] hover:text-white transition ease-in-out duration-300 ">
+            <div className="px-14 py-4 rounded-tl-2xl rounded-br-2xl ring-1 ring-black hover:bg-[#111047] hover:text-white transition ease-in-out duration-300 cursor-pointer">
               <p>Purchase Package</p>
             </div>
           </div>
         </div>
-        <div>
+        <div className="max-w-xs">
           <div className="ring-1 ring-[#111047] px-10 rounded-tl-2xl bg-[#111047] text-white rounded-br-2xl py-8 flex flex-col justify-center items-center gap-y-8">
             <h3 className="text-[#F7941D] text-3xl lg:text-4xl">
-              {" "}
-              for starter
+              For Starter
             </h3>
             <h3 className="text-[#F7941D] text-3xl font-semibold lg:text-5xl">
-              {" "}
               59 $
             </h3>
             <ul className="flex flex-col gap-y-4">
-              <li className="flex gap-x-4">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
                 Feedback Categorization
               </li>
-              <li className="flex gap-x-4">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
-                Feedback Categorization
+                Real-Time Collaboration
               </li>
-              <li className="flex gap-x-4">
-                <FaCheckCircle className="w-4 h-4" /> Real-Time Collaboration
-              </li>
-              <li className="flex gap-x-4">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
                 Feedback Loop Notifications
               </li>
-              <li className="flex gap-x-4">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
                 Essential Dev Tools Integrations
               </li>
             </ul>
-            <div className="px-14 py-4 bg-[#F7941D] rounded-tl-2xl rounded-br-2xl ring-1 ring-black hover:bg-white hover:text-[#111047] hover:text-white transition ease-in-out duration-300 ">
+            <div className="px-14 py-4 bg-[#F7941D] rounded-tl-2xl rounded-br-2xl ring-1 ring-black hover:bg-white hover:text-[#111047] transition ease-in-out duration-300 cursor-pointer">
               <p>Purchase Package</p>
             </div>
           </div>
         </div>
-        <div>
-          <div className="ring-1 ring-[#111047] px-10 rounded-tl-2xl rounded-br-2xl py-8 flex flex-col justify-center items-center gap-y-8">
+        <div className="max-w-xs">
+          <div className="ring-1 ring-[#111047] px-10 rounded-tl-2xl rounded-br-2xl py-8 flex flex-col justify-center items-center gap-y-8 bg-white dark:bg-gray-800">
             <h3 className="text-[#F7941D] text-3xl lg:text-4xl">
-              {" "}
-              for starter
+              For Starter
             </h3>
             <h3 className="text-[#F7941D] text-3xl font-semibold lg:text-5xl">
-              {" "}
               59 $
             </h3>
-            <ul className="flex flex-col gap-y-4">
-              <li className="flex gap-x-4">
+            <ul className="flex flex-col gap-y-4 text-gray-900 dark:text-gray-200">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
                 Feedback Categorization
               </li>
-              <li className="flex gap-x-4">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
-                Feedback Categorization
+                Real-Time Collaboration
               </li>
-              <li className="flex gap-x-4">
-                <FaCheckCircle className="w-4 h-4" /> Real-Time Collaboration
-              </li>
-              <li className="flex gap-x-4">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
                 Feedback Loop Notifications
               </li>
-              <li className="flex gap-x-4">
+              <li className="flex gap-x-4 items-center">
                 <FaCheckCircle className="w-4 h-4" />
                 Essential Dev Tools Integrations
               </li>
             </ul>
-            <div className="px-14 py-4 rounded-tl-2xl rounded-br-2xl ring-1 ring-black hover:bg-[#111047] hover:text-white transition ease-in-out duration-300 ">
+            <div className="px-14 py-4 rounded-tl-2xl rounded-br-2xl ring-1 ring-black hover:bg-[#111047] hover:text-white transition ease-in-out duration-300 cursor-pointer">
               <p>Purchase Package</p>
             </div>
           </div>
@@ -193,11 +178,13 @@ export const Section2 = () => {
 
 export const Section3 = () => {
   return (
-    <div>
-      <div className="flex flex-col lg:flex-row justify-around gap-x-8 p-24">
-        <div className="flex w-1/2 flex-col items-start gap-y-12 max-w-lg justify-center">
-          <h3 className="text-3xl font-bold lg:text-5xl">how it works ?</h3>
-          <p>
+    <div className="dark:bg-gray-900">
+      <div className="flex flex-col lg:flex-row justify-around gap-x-8 p-6 lg:p-24">
+        <div className="flex w-full lg:w-1/2 flex-col items-start gap-y-12 max-w-lg justify-center">
+          <h3 className="text-3xl font-bold lg:text-5xl text-gray-900 dark:text-gray-200">
+            How it works?
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300">
             Dolor ea ea pariatur ad est non irure exercitation non exercitation
             consequat aute enim. Veniam culpa ipsum nulla eiusmod ex fugiat
             Lorem proident labore consequat commodo sint eiusmod irure.
@@ -208,9 +195,9 @@ export const Section3 = () => {
             irure ea qui aliquip exercitation non labore proident voluptate.
             Cillum voluptate labore ex consectetur proident minim. Ipsum qui
           </p>
-          <ButtonOr text="get started" />
+          <ButtonOr text="Get started" />
         </div>
-        <div className="w-1/2 h-[700px] ">
+        <div className="w-full lg:w-1/2 h-[500px] lg:h-[700px] mt-8 lg:mt-0">
           <Image
             src="/imgs/pexels-didsss-1405724.jpg"
             width={500}
@@ -226,37 +213,41 @@ export const Section3 = () => {
 
 export const Section4 = () => {
   return (
-    <div className=" py-12">
-      <div className="flex flex-row pl-24">
-        <div className="max-w-lg px-12 flex flex-col gap-y-8 justify-center items-start">
-          <h1 className="uppercase text-3xl lg:text-5xl font-bold">
-            tell a better brand stoy{" "}
+    <div className="py-12 dark:bg-gray-800">
+      <div className="flex flex-col lg:flex-row  lg:pl-24">
+        <div className="max-w-lg px-6 lg:px-12 flex flex-col gap-y-8 justify-center items-start">
+          <h1 className="uppercase text-3xl lg:text-5xl font-bold text-gray-900 dark:text-gray-200">
+            Tell a better brand story
           </h1>
-          <p>
+          <p className="text-gray-700 dark:text-gray-300">
             Quis commodo sunt elit nisi quis officia veniam ea qui do
-            excepteur.Dolor culpa proident nulla pariatur amet.
+            excepteur. Dolor culpa proident nulla pariatur amet.
           </p>
-          <ul className="flex flex-col gap-y-4">
-            <li className="flex gap-x-8 justify-center items-center">
-              <FaLock className="w-8 h-8" /> Warrant present garrets limited
-              cordial in inquiry to. Supported me sweetness behaviour{" "}
+          <ul className="flex flex-col gap-y-4 text-gray-900 dark:text-gray-200">
+            <li className="flex gap-x-8 items-center">
+              <FaLock className="w-8 h-8" />
+              Warrant present garrets limited cordial in inquiry to. Supported
+              me sweetness behaviour
             </li>
-            <li className="flex gap-x-8 justify-center items-center">
-              <FaLock className="w-8 h-8" /> Warrant present garrets limited
-              cordial in inquiry to. Supported me sweetness behaviour{" "}
+            <li className="flex gap-x-8 items-center">
+              <FaLock className="w-8 h-8" />
+              Warrant present garrets limited cordial in inquiry to. Supported
+              me sweetness behaviour
             </li>
-            <li className="flex gap-x-8 justify-center items-center">
-              <FaLock className="w-8 h-8" /> Warrant present garrets limited
-              cordial in inquiry to. Supported me sweetness behaviour{" "}
+            <li className="flex gap-x-8 items-center">
+              <FaLock className="w-8 h-8" />
+              Warrant present garrets limited cordial in inquiry to. Supported
+              me sweetness behaviour
             </li>
-            <li className="flex gap-x-8 justify-center items-center">
-              <FaLock className="w-8 h-8" /> Warrant present garrets limited
-              cordial in inquiry to. Supported me sweetness behaviour{" "}
+            <li className="flex gap-x-8 items-center">
+              <FaLock className="w-8 h-8" />
+              Warrant present garrets limited cordial in inquiry to. Supported
+              me sweetness behaviour
             </li>
           </ul>
           <ButtonOr text="Get started" />
         </div>
-        <div className="w-full">
+        <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
           <Image
             src="/imgs/pexels-didsss-1405724.jpg"
             width={500}
@@ -272,10 +263,10 @@ export const Section4 = () => {
 
 export const Section5 = () => {
   return (
-    <div className="py-16">
+    <div className="py-16 dark:bg-gray-900">
       <div className="container m-auto px-6 space-y-8 md:px-12 lg:px-56">
         <div className="m-auto text-center lg:w-7/12">
-          <h2 className="text-2xl text-gray-700 font-bold md:text-4xl">
+          <h2 className="text-2xl text-gray-900 dark:text-gray-200 font-bold md:text-4xl">
             Your favorite companies are our partners.
           </h2>
         </div>

@@ -3,8 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { ButtonBlack, ButtonOr } from "../button/Button";
 
-
-
 export const HeroHome = () => {
   return (
     <div
@@ -149,8 +147,14 @@ export const HeroAbout = () => {
     <div className="h-screen">
       <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div key={slide.id} className="flex flex-col lg:flex-row gap-8 justify-center items-center">
-            <div className="relative flex-1 flex flex-row justify-center" ref={(el) => (slidesRef.current[index] = el)}>
+          <div
+            key={slide.id}
+            className="flex flex-col lg:flex-row gap-8 justify-center items-center"
+          >
+            <div
+              className="relative flex-1 flex flex-row justify-center"
+              ref={(el) => (slidesRef.current[index] = el)}
+            >
               <div className="w-80">
                 <Image
                   src={slide.img1}
@@ -187,8 +191,12 @@ export const HeroAbout = () => {
               ref={(el) => (textRefs.current[index] = el)}
               style={{ opacity: 1, transform: "translateY(20px)" }}
             >
-              <h1 className="text-3xl font-bold text-[#111047]">{slide.titre}</h1>
-              <p className="text-lg text-[#111047] max-w-lg text-center">{slide.text}</p>
+              <h1 className="text-3xl font-bold text-[#111047]">
+                {slide.titre}
+              </h1>
+              <p className="text-lg text-[#111047] max-w-lg text-center">
+                {slide.text}
+              </p>
             </div>
           </div>
         ))}
@@ -220,6 +228,109 @@ export const HeroAbout = () => {
           }
         }
       `}</style>
+    </div>
+  );
+};
+
+export const HeroContact = () => {
+  return (
+    <div>
+      <div className="relative w-full">
+        <div className="py-8 flex flex-col gap-y-8">
+          <div className="container m-auto px-6 py-40 md:px-12 lg:py-0 lg:px-7">
+            <div className="flex justify-around items-center flex-wrap gap-12 lg:gap-0">
+              <div className="lg:w-5/12 space-y-8">
+                <span className="flex space-x-2">
+                  <span className="block w-14 mb-2 border-b-2 border-gray-600"></span>
+                  <span className="font-medium text-gray-600 dark:text-gray-400">
+                    New this summer
+                  </span>
+                </span>
+                <h1 className="text-4xl font-bold md:text-6xl dark:text-white">
+                  The New <br /> Way To Discover{" "}
+                </h1>
+                <p className="text-xl text-gray-700 dark:text-gray-300">
+                  Booking Company-Wide Savings, Invoicing and reporting docs.
+                </p>
+
+                <div className="flex space-x-4">
+                  <button
+                    type="button"
+                    title="Start buying"
+                    className="w-full py-3 px-6 text-center rounded-tl-2xl rounded-br-2xl transition bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 active:bg-gray-700 focus:bg-gray-800 sm:w-max"
+                  >
+                    <span className="block text-white font-semibold">
+                      Shop now
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    title="Start buying"
+                    className="group w-full py-3 px-6 text-center rounded-tl-2xl rounded-br-2xl transition dark:active:bg-yellow-800 dark:focus:bg-yellow-900 active:bg-yellow-200 focus:bg-yellow-100 sm:w-max"
+                  >
+                    <span className="block text-gray-700 dark:text-white font-semibold group-focus:text-yellow-700 dark:group-focus:text-yellow-100">
+                      Our showreel
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="hidden relative md:block  lg:flex lg:items-center lg:justify-center">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 m-auto w-[24rem] h-[24rem] rounded-full bg-orange-400"
+                ></div>
+                <Image
+                  src="/imgs/smartLock.png"
+                  width={500}
+                  height={500}
+                  className="relative ml-auto"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div className="px-24 w-full">
+            <div className="container m-auto px-6 flex items-end justify-between md:px-12 lg:px-7">
+              <a href="" className="hidden space-x-4 md:flex md:items-center">
+                <Image
+                  className="w-14 h-14 rounded-full object-cover"
+                  src="/imgs/pexels-didsss-1405724.jpg"
+                  width={500}
+                  height={500}
+                  alt=""
+                />
+                <div className="text-gray-600 da/rk:text-gray-400">
+                  <span className="text-sm">Question ?</span>
+                  <p className="font-semibold text-gray-700 dark:text-gray-300">
+                    Talk to our assistant
+                  </p>
+                </div>
+              </a>
+              <div>
+                <a
+                  href="#"
+                  className="hover:text-yellow-700 dark:text-gray-300 dark:hover:text-red-400"
+                >
+                  Facebook /
+                </a>
+                <a
+                  href="#"
+                  className="hover:text-yellow-700 dark:text-gray-300 dark:hover:text-red-400"
+                >
+                  YouTube /{" "}
+                </a>
+                <a
+                  href="#"
+                  className="hover:text-yellow-700 dark:text-gray-300 dark:hover:text-red-400"
+                >
+                  Twitter
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

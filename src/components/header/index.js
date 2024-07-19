@@ -1,19 +1,26 @@
-"use client"
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUser, faShoppingCart, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import Link from "next/link";
+import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSearch,
+  faUser,
+  faShoppingCart,
+  faBars,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import TransitionLinks from "../Transition";
 
 const variants = {
   open: { opacity: 1, x: 0 },
   closed: { opacity: 0, x: "-100%" },
-}
+};
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isSearchBarOpen, setSearchBarOpen] = useState(false);
 
@@ -31,23 +38,38 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link href="/home" className="text-gray-700 hover:text-gray-900">Option 1</Link>
+              <Link href="/" className="text-gray-700 hover:text-gray-900">
+                Option 1
+              </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link href="/products" className="text-gray-700 hover:text-gray-900">Option 2</Link>
+              <Link
+                href="/products"
+                className="text-gray-700 hover:text-gray-900"
+              >
+                Option 2
+              </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link href="/about" className="text-gray-700 hover:text-gray-900">Option 3</Link>
+              <Link href="/about" className="text-gray-700 hover:text-gray-900">
+                Option 3
+              </Link>
             </motion.div>
           </div>
           <div className="flex items-center space-x-4 ml-auto">
             <motion.div whileHover={{ scale: 1.1 }}>
-              <button onClick={toggleSearchBar} className="text-gray-700 hover:text-gray-900">
+              <button
+                onClick={toggleSearchBar}
+                className="text-gray-700 hover:text-gray-900"
+              >
                 <FontAwesomeIcon icon={faSearch} />
               </button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link href="/profile" className="text-gray-700 hover:text-gray-900">
+              <Link
+                href="/profile"
+                className="text-gray-700 hover:text-gray-900"
+              >
                 <FontAwesomeIcon icon={faUser} />
               </Link>
             </motion.div>
@@ -63,25 +85,50 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <motion.div whileHover={{ scale: 1.05 }}>
               <Link href="/">
-                <Image src="/logo/logo.png" alt="Logo" width={250} height={100} />
+                <Image
+                  src="/logo/logo.png"
+                  alt="Logo"
+                  width={250}
+                  height={100}
+                />
               </Link>
             </motion.div>
           </div>
-          <div className="flex items-center space-x-4 ml-auto uppercase font-bold">
+          <div className="flex items-center space-x-8 ml-auto uppercase font-bold">
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link href="/src/pages/Home/Homepage.js" className="text-gray-700 transition ease-in-out duration-300 hover:text-gray-900 hover:text-[#F7941D]">home</Link>
+              <TransitionLinks
+                href="/"
+                className="text-gray-700 transition ease-in-out duration-300 hover:text-gray-900 hover:text-[#F7941D]"
+              >
+                home
+              </TransitionLinks>
             </motion.div>
-            <span className="text-gray-300">|</span>
+
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link href="/src/pages/Services/Services.js" className="text-gray-700 transition ease-in-out duration-300 hover:text-gray-900 hover:text-[#F7941D]">services</Link>
+              <TransitionLinks
+                href="/vitrine/pages/Services"
+                className="text-gray-700 transition ease-in-out duration-300 hover:text-gray-900 hover:text-[#F7941D]"
+              >
+                services
+              </TransitionLinks>
             </motion.div>
-            <span className="text-gray-300">|</span>
+
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link href="/option3" className="text-gray-700 transition ease-in-out duration-300 hover:text-gray-900 hover:text-[#F7941D]">about us</Link>
+              <TransitionLinks
+                href="/vitrine/pages/About"
+                className="text-gray-700 transition ease-in-out duration-300 hover:text-gray-900 hover:text-[#F7941D]"
+              >
+                about us
+              </TransitionLinks>
             </motion.div>
-            <span className="text-gray-300">|</span>
+
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link href="/option4" className="text-gray-700 transition ease-in-out duration-300 hover:text-gray-900 hover:text-[#F7941D]">contact</Link>
+              <TransitionLinks
+                href="/vitrine/pages/Contact"
+                className="text-gray-700 transition ease-in-out duration-300 hover:text-gray-900 hover:text-[#F7941D]"
+              >
+                contact
+              </TransitionLinks>
             </motion.div>
           </div>
         </div>
@@ -92,18 +139,29 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <motion.div whileHover={{ scale: 1.05 }}>
               <Link href="/">
-                <Image src="/logo/logo.png" alt="Logo" width={150} height={50} />
+                <Image
+                  src="/logo/logo.png"
+                  alt="Logo"
+                  width={150}
+                  height={50}
+                />
               </Link>
             </motion.div>
           </div>
           <div className="flex items-center space-x-4 ml-auto">
             <motion.div whileHover={{ scale: 1.1 }}>
-              <button onClick={toggleSearchBar} className="text-gray-700 hover:text-gray-900">
+              <button
+                onClick={toggleSearchBar}
+                className="text-gray-700 hover:text-gray-900"
+              >
                 <FontAwesomeIcon icon={faSearch} />
               </button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link href="/profile" className="text-gray-700 hover:text-gray-900">
+              <Link
+                href="/profile"
+                className="text-gray-700 hover:text-gray-900"
+              >
                 <FontAwesomeIcon icon={faUser} />
               </Link>
             </motion.div>
@@ -113,7 +171,10 @@ const Header = () => {
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }}>
-              <button onClick={toggleSidebar} className="text-gray-700 hover:text-gray-900">
+              <button
+                onClick={toggleSidebar}
+                className="text-gray-700 hover:text-gray-900"
+              >
                 <FontAwesomeIcon icon={faBars} />
               </button>
             </motion.div>
@@ -123,16 +184,16 @@ const Header = () => {
 
       <AnimatePresence>
         {isSearchBarOpen && (
-          <motion.div 
+          <motion.div
             className="container mx-auto py-4 px-10"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <input 
-              type="text" 
-              placeholder="Search..." 
+            <input
+              type="text"
+              placeholder="Search..."
               className="w-full p-2 border border-gray-300 rounded-md"
             />
           </motion.div>
@@ -141,24 +202,44 @@ const Header = () => {
 
       <AnimatePresence>
         {isSidebarOpen && (
-          <motion.div 
+          <motion.div
             className="fixed inset-0 bg-gray-800 bg-opacity-50 z-50"
-            initial={{ x: '-100%' }}
+            initial={{ x: "-100%" }}
             animate={{ x: 0 }}
-            exit={{ x: '-100%' }}
+            exit={{ x: "-100%" }}
             transition={{ duration: 0.5 }}
           >
             <div className="fixed left-0 top-0 h-full bg-white p-5 space-y-4 w-64 uppercase font-bold">
-              <button 
-                onClick={toggleSidebar} 
+              <button
+                onClick={toggleSidebar}
                 className="text-gray-700 hover:text-gray-900 absolute top-4 right-4"
               >
                 <FontAwesomeIcon icon={faTimes} />
               </button>
-              <Link href="/home" className="block text-gray-700 hover:text-gray-900">home</Link>
-              <Link href="/products" className="block text-gray-700 hover:text-gray-900">services</Link>
-              <Link href="/about" className="block text-gray-700 hover:text-gray-900">about us</Link>
-              <Link href="/option1" className="block text-gray-700 hover:text-gray-900">contact</Link>
+              <Link
+                href="/home"
+                className="block text-gray-700 hover:text-gray-900"
+              >
+                home
+              </Link>
+              <Link
+                href="/products"
+                className="block text-gray-700 hover:text-gray-900"
+              >
+                services
+              </Link>
+              <Link
+                href="/about"
+                className="block text-gray-700 hover:text-gray-900"
+              >
+                about us
+              </Link>
+              <Link
+                href="/option1"
+                className="block text-gray-700 hover:text-gray-900"
+              >
+                contact
+              </Link>
             </div>
           </motion.div>
         )}

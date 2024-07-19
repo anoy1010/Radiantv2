@@ -350,7 +350,7 @@ export const SocialMediaContent = () => {
   };
 
   return (
-   <div className="h-screen lg:h-0">
+   <div className="max-h-2xl">
      <div className="flex flex-col py-12 lg:py-24 gap-y-12 lg:gap-y-24 justify-around items-center px-4">
       <div className="lg:max-w-3xl text-center flex flex-col justify-center items-center">
         <h1 className="text-[#F7941D] w-auto lg:max-w-2xl text-[24px] lg:text-[40px]">

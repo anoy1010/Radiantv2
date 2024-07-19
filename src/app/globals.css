@@ -28,9 +28,13 @@
 }
 
 body {
+  transition-property: opacity, backgroud, transform, filter;
+  transition-timing-fuction: ease-in-out;
+  transition-duration: 700ms;
   font-family: "Saira", sans-serif;
     
 }
+
 
 @layer utilities {
   .text-balance {
@@ -82,3 +86,10 @@ body {
   }
 }
 
+
+.page-transition{
+  opacity: 0;
+  background: #F7941D;
+  transform: translateY(40px);
+  filter: blur(12px);
+}

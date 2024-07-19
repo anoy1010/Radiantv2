@@ -3,7 +3,7 @@ import { HeroServices } from '@/components/hero'
 import React from 'react'
 import Section from './Section'
 
-function Services() {
+function Page() {
   return (
     <div  className="bg-[#FFF4E4]">
       <HeroServices/>
@@ -12,4 +12,4 @@ function Services() {
   )
 }
 
-export default Services
+export default Page

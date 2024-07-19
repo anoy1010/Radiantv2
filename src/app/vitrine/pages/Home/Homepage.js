@@ -4,7 +4,7 @@ import React from "react";
 import Section, { Section1, Section2, Section3, Section4, SocialMediaContent } from "./Section";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../../app/globals.css";
+import "../../../globals.css";
 import SectionAll from "./Section";
 import { parseCookies, setCookie } from 'nookies';
 import SetCookieButton from "@/components/cookie/SetCookieButton";

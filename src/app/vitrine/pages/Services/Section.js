@@ -2,6 +2,8 @@ import { ButtonBlack, ButtonOr } from "@/components/button/Button";
 import Image from "next/image";
 import React, { useState } from "react";
 import Slider from "react-slick";
+import { SlideshowLightbox } from 'lightbox.js-react';
+import 'lightbox.js-react/dist/index.css';
 
 function Section() {
   return (
@@ -155,13 +157,37 @@ export const Section3 = () => {
   );
 };
 
+
+const images = [
+  "/imgs/pexels-eye4dtail-792032.jpg",
+  "/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg",
+  "/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg",
+  "/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg",
+  "/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg",
+];
+
 export const Section4 = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
+
+  const images = [
+    { src: "/imgs/pexels-eye4dtail-792032.jpg", alt: "Image 1" },
+    { src: "/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg", alt: "Image 2" },
+    { src: "/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg", alt: "Image 3" },
+    { src: "/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg", alt: "Image 4" },
+    { src: "/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg", alt: "Image 5" },
+  ];
+
+  const openLightbox = (index) => {
+    setLightboxImageIndex(index);
+    setIsOpen(true);
+  };
+
   return (
     <div>
       <div className="flex flex-col gap-y-12 justify-center items-center ">
         <h1 className="font-bold text-3xl md:text-4xl lg:text-6xl max-w-2xl text-[#111047] text-center">
-          {" "}
-          the benefits that will make you comfort
+          The benefits that will make you comfort
         </h1>
         <p className="text-[16px] lg:text-[18px] text-[#111047] max-w-3xl text-center">
           Occaecat nostrud cupidatat sit esse sunt anim officia commodo
@@ -176,18 +202,14 @@ export const Section4 = () => {
         <div className="bg-[#FFF7EB] py-12 md:py-16 lg:py-24 px-4 md:px-8 lg:px-16">
           <div className="grid lg:grid-rows-5 lg:grid-cols-7 gap-4">
             <div className="bg-red-400 row-span-5 col-span-2 overflow-hidden">
-              <a
-                href="https://unsplash.com/photos/QckxruozjRg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a onClick={() => openLightbox(0)} className="cursor-pointer">
                 <Image
-                  src="/imgs/pexels-eye4dtail-792032.jpg"
+                  src={images[0].src}
                   width={500}
                   height={500}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   layout="responsive"
-                  alt="Image 1"
+                  alt={images[0].alt}
                 />
               </a>
             </div>
@@ -199,73 +221,33 @@ export const Section4 = () => {
                 Immersive beautiful co-working space gallery
               </h1>
             </div>
-            <div className="bg-red-400 row-span-2 col-span-3 mr-8 overflow-hidden">
-              <a
-                href="https://unsplash.com/photos/hFzIoD0F_i8"
-                target="_blank"
-                rel="noopener noreferrer"
+            {images.slice(1).map((image, index) => (
+              <div
+                key={index + 1}
+                className={`bg-red-400 ${index === 0 || index === 2 ? 'row-span-2 col-span-3' : 'row-span-2 col-span-2'} overflow-hidden`}
               >
-                <Image
-                  src="/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg"
-                  width={500}
-                  height={500}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  layout="responsive"
-                  alt="Image 2"
-                />
-              </a>
-            </div>
-            <div className="bg-red-400 row-span-2 col-span-2 overflow-hidden">
-              <a
-                href="https://unsplash.com/photos/jPQZq4Yeb3s"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg"
-                  width={500}
-                  height={500}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  layout="responsive"
-                  alt="Image 3"
-                />
-              </a>
-            </div>
-            <div className="bg-red-400 row-span-2 col-span-2 overflow-hidden">
-              <a
-                href="https://unsplash.com/photos/Y8lCoTRgHPE"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg"
-                  width={500}
-                  height={500}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  layout="responsive"
-                  alt="Image 4"
-                />
-              </a>
-            </div>
-            <div className="bg-red-400 row-span-2 col-span-3 ml-8 overflow-hidden">
-              <a
-                href="https://unsplash.com/photos/MxVkWPiJALs"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/imgs/luca-bravo-hFzIoD0F_i8-unsplash.jpg"
-                  width={500}
-                  height={500}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  layout="responsive"
-                  alt="Image 5"
-                />
-              </a>
-            </div>
+                <a onClick={() => openLightbox(index + 1)} className="cursor-pointer">
+                  <Image
+                    src={image.src}
+                    width={500}
+                    height={500}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    layout="responsive"
+                    alt={image.alt}
+                  />
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </div>
+      <SlideshowLightbox
+        images={images.map(img => ({ src: img.src, alt: img.alt }))}
+        open={isOpen}
+        lightboxIdentifier="lbox1"
+        onClose={() => setIsOpen(false)}
+        startIndex={lightboxImageIndex}
+      />
     </div>
   );
 };
@@ -291,7 +273,7 @@ export const Section5 = () => {
             <ButtonBlack text="en Savoir plus" />
           </div>
         </div>
-        <div className="relative  flex items-center justify-center">
+        <div className="relative flex items-center justify-center">
           <div className="absolute w-[calc(90%+50px)] h-[calc(100%+50px)] border border-black transform -translate-x-32 -translate-y-30 z-0 animate-move1"></div>
           <div className="absolute w-[calc(70%+100px)] h-[calc(90%+100px)] border border-black transform translate-x-32 translate-y-[300px] z-0 animate-move2"></div>
           <div className="absolute w-[calc(110%+50px)] h-[calc(100%+50px)] border border-black transform -translate-x-10 -translate-y-10 z-0 animate-move3"></div>
@@ -301,3 +283,6 @@ export const Section5 = () => {
     </div>
   );
 };
+
+
+

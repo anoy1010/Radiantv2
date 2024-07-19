@@ -3,7 +3,7 @@ import React from "react";
 import Section from "./Section";
 import { HeroAbout } from "@/components/hero";
 
-export default function About() {
+export default function Page() {
   return (
     <div>
       <HeroAbout />

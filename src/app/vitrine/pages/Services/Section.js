@@ -28,7 +28,7 @@ export const Section1 = () => {
           <h1 className="text-3xl lg:text-6xl font-bold">how it works ?</h1>
           <p className="text-sm md:text-[18px] lg:max-w-lg leading-relaxed">
             Enim adipisicing ipsum reprehenderit anim deserunt commodo anim
-            minim dolore et ea ea. Esse aliquip eiusmod do proident officia
+            minim dolore ojjpojp ojpojkp et ea ea. Esse aliquip eiusmod do proident officia
             reprehenderit eiusmod qui enim aliqua voluptate ipsum. Nostrud
             labore duis Lorem dolor in ullamco amet. Eu deserunt exercitation
             minim laboris duis velit consequat ea est anim occaecat minim.

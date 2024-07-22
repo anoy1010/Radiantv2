@@ -2,8 +2,9 @@ import { ButtonBlack, ButtonOr } from "@/components/button/Button";
 import Image from "next/image";
 import React, { useState } from "react";
 import Slider from "react-slick";
-import { SlideshowLightbox } from 'lightbox.js-react';
-import 'lightbox.js-react/dist/index.css';
+import Lightbox from 'react-spring-lightbox';
+
+
 
 function Section() {
   return (
@@ -137,7 +138,7 @@ export const Section3 = () => {
           <ButtonOr text="Commencez" />
         </div>
         <div className="w-full lg:w-1/3">
-          <Slider {...settings}>
+        <Slider {...settings}>
             {imageSection.map((image, index) => (
               <div key={image.id} className="p-2">
                 <Image
@@ -168,7 +169,7 @@ const images = [
 
 export const Section4 = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
     { src: "/imgs/pexels-eye4dtail-792032.jpg", alt: "Image 1" },
@@ -179,9 +180,12 @@ export const Section4 = () => {
   ];
 
   const openLightbox = (index) => {
-    setLightboxImageIndex(index);
+    setCurrentImageIndex(index);
     setIsOpen(true);
   };
+
+  const gotoPrevious = () => currentImageIndex > 0 && setCurrentImageIndex(currentImageIndex - 1);
+  const gotoNext = () => currentImageIndex + 1 < images.length && setCurrentImageIndex(currentImageIndex + 1);
 
   return (
     <div>
@@ -241,12 +245,20 @@ export const Section4 = () => {
           </div>
         </div>
       </div>
-      <SlideshowLightbox
-        images={images.map(img => ({ src: img.src, alt: img.alt }))}
-        open={isOpen}
-        lightboxIdentifier="lbox1"
+      <Lightbox
+        isOpen={isOpen}
+        onPrev={gotoPrevious}
+        onNext={gotoNext}
+        images={images}
+        currentIndex={currentImageIndex}
         onClose={() => setIsOpen(false)}
-        startIndex={lightboxImageIndex}
+        /* Vous pouvez ajouter d'autres props ici selon vos besoins */
+        // Par exemple :
+        // renderHeader={() => (<CustomHeader />)}
+        // renderFooter={() => (<CustomFooter />)}
+        // renderPrevButton={() => (<CustomPrevButton />)}
+        // renderNextButton={() => (<CustomNextButton />)}
+        // renderImageOverlay={() => (<CustomImageOverlay />)}
       />
     </div>
   );

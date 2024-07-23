@@ -2,10 +2,107 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { ButtonBlack, ButtonOr } from "../button/Button";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { Link as ScrollLink } from 'react-scroll';
+
+
+const VideoSlider = [
+  {link:"/video/video1.mp4"},
+  {link:"/video/video2.mp4"},
+  {link:"/video/video3.mp4"},
+]
+
+export const HeroVideoHome = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '0',
+    autoplay: true,
+    autoplaySpeed: 8000,
+    beforeChange: (current, next) => setActiveIndex(next),
+    appendDots: dots => (
+      <div
+        style={{
+          bottom: '10px',
+          padding: '10px'
+        }}
+      >
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
+    customPaging: i => (
+      <div
+        style={{
+          width: "12px",
+          height: "12px",
+          border: "2px solid orange",
+          borderRadius: "50%",
+          backgroundColor: i === activeIndex ? "orange" : "transparent"
+        }}
+      />
+    ),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false
+        }
+      }
+    ]
+  };
+
+  return (
+    <div className="w-[100%]">
+      <Slider {...settings} className="w-full">
+        {VideoSlider.map((video, index) => (
+          <div key={index} className="w-full">
+            <video 
+              className="w-full h-screen object-cover"
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+            >
+              <source src={video.link} type="video/mp4" />
+              Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+          </div>
+        ))}
+      </Slider>
+      <ScrollLink 
+        to="HeroHome" 
+        smooth={true} 
+        duration={500} 
+        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-2 rounded-full cursor-pointer hover:bg-orange-600 transition-colors duration-300"
+      >
+        Découvrir
+      </ScrollLink>
+    </div>
+  )
+};
 
 export const HeroHome = () => {
   return (
     <div
+     id="HeroHome"
       style={{ backgroundImage: "url('/hero_back.png')" }}
       className="relative h-screen bg-cover bg-center flex items-center px-4 md:px-16 lg:px-32"
     >

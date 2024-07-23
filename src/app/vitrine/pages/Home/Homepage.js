@@ -10,7 +10,7 @@ import { parseCookies, setCookie } from 'nookies';
 import SetCookieButton from "@/components/cookie/SetCookieButton";
 import ShowCookie from "@/components/cookie/ShowCookie";
 import CookieConsent from "@/components/cookie/CookieConsent";
-import { HeroHome } from "@/components/hero";
+import { HeroHome, HeroVideoHome } from "@/components/hero";
 
 
 
@@ -36,6 +36,7 @@ export default function Homepage() {
   
   return (
     <div>
+      <HeroVideoHome/>
       <HeroHome/>
       <SectionAll/>
       <CookieConsent />

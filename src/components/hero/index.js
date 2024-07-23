@@ -15,6 +15,26 @@ const VideoSlider = [
 
 export const HeroVideoHome = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isInHeroSection, setIsInHeroSection] = useState(false);
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInHeroSection(entry.isIntersecting);
+      },
+      { threshold: 0.1 } // Ajustez ce seuil selon vos besoins
+    );
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current);
+      }
+    };
+  }, [setIsInHeroSection]);
 
   const settings = {
     dots: true,
@@ -30,7 +50,7 @@ export const HeroVideoHome = () => {
     appendDots: dots => (
       <div
         style={{
-          bottom: '10px',
+          bottom: '80px',
           padding: '10px'
         }}
       >
@@ -70,7 +90,7 @@ export const HeroVideoHome = () => {
   };
 
   return (
-    <div className="w-[100%]">
+    <div className="w-[100%]" ref={heroRef}>
       <Slider {...settings} className="w-full">
         {VideoSlider.map((video, index) => (
           <div key={index} className="w-full">

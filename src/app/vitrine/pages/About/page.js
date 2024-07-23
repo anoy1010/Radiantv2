@@ -5,7 +5,7 @@ import { HeroAbout } from "@/components/hero";
 
 export default function Page() {
   return (
-    <div>
+    <div className="pt-32">
       <HeroAbout />
       <Section />
     </div>

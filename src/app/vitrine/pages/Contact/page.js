@@ -7,7 +7,7 @@ import { HeroContact } from "@/components/hero";
 
 export default function page() {
   return (
-    <div>
+    <div className="pt-32">
        <HeroContact />
        <Section />
     </div>

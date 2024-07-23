@@ -5,7 +5,7 @@ import Section from './Section'
 
 function Page() {
   return (
-    <div  className="bg-[#FFF4E4]">
+    <div  className="bg-[#FFF4E4] pt-32">
       <HeroServices/>
       <Section/>
     </div>

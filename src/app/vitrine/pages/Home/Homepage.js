@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import React, {useState} from "react";
 import Section, { Section1, Section2, Section3, Section4, SocialMediaContent } from "./Section";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -33,12 +33,12 @@ export const getServerSideProps = async (ctx) => {
 
 export default function Homepage() {
 
-  
+  const [isInHeroSection, setIsInHeroSection] = useState(false);
   return (
     <div>
-      <HeroVideoHome/>
-      <HeroHome/>
-      <SectionAll/>
+      <HeroVideoHome setIsInHeroSection={setIsInHeroSection} />
+      <HeroHome isInHeroSection={isInHeroSection}/>
+      <SectionAll isInHeroSection={isInHeroSection}/>
       <CookieConsent />
     </div>
   );

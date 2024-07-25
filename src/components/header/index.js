@@ -129,23 +129,6 @@ const Header = ({ isInHeroSection }) => {
       <header className={`fixed w-full z-50 ${headerClass}`}>
         <div className="container mx-auto flex flex-col py-4 px-10 pcecran">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <motion.div whileHover={{ scale: 1.1 }}>
-                <Link href="/" className={linkClass}>
-                  Option 1
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.1 }}>
-                <Link href="/products" className={linkClass}>
-                  Option 2
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.1 }}>
-                <Link href="/about" className={linkClass}>
-                  Option 3
-                </Link>
-              </motion.div>
-            </div>
             <div className="flex items-center space-x-4 ml-auto">
               <motion.div whileHover={{ scale: 1.1 }}>
                 <button onClick={toggleSearchBar} className={linkClass}>

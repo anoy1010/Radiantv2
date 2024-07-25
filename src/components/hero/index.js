@@ -5,6 +5,7 @@ import { ButtonBlack, ButtonOr } from "../button/Button";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Link as ScrollLink } from 'react-scroll';
+import { FaRegArrowAltCircleDown } from "react-icons/fa";
 
 
 const VideoSlider = [
@@ -111,9 +112,9 @@ export const HeroVideoHome = () => {
         to="HeroHome" 
         smooth={true} 
         duration={500} 
-        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-2 rounded-full cursor-pointer hover:bg-orange-600 transition-colors duration-300"
+        className="absolute bottom-2 left-1/2 transform -translate-x-1/2  text-white px-4 py-2 rounded-full cursor-pointer   "
       >
-        Découvrir
+      <FaRegArrowAltCircleDown className="h-12 w-12 transition hover:scale-125"/>
       </ScrollLink>
     </div>
   )

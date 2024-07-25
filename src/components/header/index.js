@@ -10,6 +10,7 @@ import {
   faBars,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import { FiArrowRight } from "react-icons/fi";
 import {
   motion,
   AnimatePresence,
@@ -20,6 +21,43 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import TransitionLinks from "../Transition";
 
+export const Blog = () => {
+  return (
+    <div>
+      <div className="grid grid-cols-2 gap-2">
+        <a href="#">
+          <img
+            className="mb-2 h-14 w-full rounded object-cover"
+            src="/imgs/blog/4.png"
+            alt="Placeholder image"
+          />
+          <h4 className="mb-0.5 text-sm font-medium">Lorem ipsum dolor</h4>
+          <p className="text-xs text-neutral-400">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet illo
+            quidem eos.
+          </p>
+        </a>
+        <a href="#">
+          <img
+            className="mb-2 h-14 w-full rounded object-cover"
+            src="/imgs/blog/5.png"
+            alt="Placeholder image"
+          />
+          <h4 className="mb-0.5 text-sm font-medium">Lorem ipsum dolor</h4>
+          <p className="text-xs text-neutral-400">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet illo
+            quidem eos.
+          </p>
+        </a>
+      </div>
+      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-indigo-300">
+        <span>View more</span>
+        <FiArrowRight />
+      </button>
+    </div>
+  );
+};
+
 const Header = ({ isInHeroSection }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -28,16 +66,18 @@ const Header = ({ isInHeroSection }) => {
   const pathname = usePathname();
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const position = window.pageYOffset;
       setScrollPosition(position);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -149,14 +189,69 @@ const Header = ({ isInHeroSection }) => {
                   home
                 </TransitionLinks>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.1 }}>
-                <TransitionLinks
-                  href="/vitrine/pages/Services"
-                  className={`transition ease-in-out duration-300 ${linkClass}`}
+              <motion.div
+                className="relative"
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+              >
+                <button
+                  className={`transition ease-in-out duration-300 uppercase ${linkClass}`}
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
                   services
-                </TransitionLinks>
+                </button>
+                {isDropdownOpen && (
+                  <motion.div
+                    className="absolute right-0 mt-2 w-[400px] p-4 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                  >
+                    <div
+                      className="py-1"
+                      role="menu"
+                      aria-orientation="horizontal"
+                      aria-labelledby="options-menu"
+                    >
+                      <div className="grid grid-cols-2 gap-8">
+                        <a href="#">
+                          <img
+                            className="mb-2 h-14 w-full rounded object-cover"
+                            src="/imgs/blog/4.png"
+                            alt="Placeholder image"
+                          />
+                          <h4 className="mb-0.5 text-sm font-medium">
+                            Lorem ipsum dolor
+                          </h4>
+                          <p className="text-xs text-neutral-400">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Amet illo quidem eos.
+                          </p>
+                        </a>
+                        <a href="#">
+                          <img
+                            className="mb-2 h-14 w-full rounded object-cover"
+                            src="/imgs/blog/5.png"
+                            alt="Placeholder image"
+                          />
+                          <h4 className="mb-0.5 text-sm font-medium">
+                            Lorem ipsum dolor
+                          </h4>
+                          <p className="text-xs text-neutral-400">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Amet illo quidem eos.
+                          </p>
+                        </a>
+                      </div>
+                      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-indigo-300">
+                        <span>View more</span>
+                        <FiArrowRight />
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
               </motion.div>
+
               <motion.div whileHover={{ scale: 1.1 }}>
                 <TransitionLinks
                   href="/vitrine/pages/About"
@@ -165,6 +260,7 @@ const Header = ({ isInHeroSection }) => {
                   about us
                 </TransitionLinks>
               </motion.div>
+
               <motion.div whileHover={{ scale: 1.1 }}>
                 <TransitionLinks
                   href="/vitrine/pages/Contact"
